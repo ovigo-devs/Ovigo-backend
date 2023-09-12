@@ -11,6 +11,7 @@ const usersRegRoutes = require('./routes/usersRegRoutes');
 const usersLogRoutes = require('./routes/userLogRoutes');
 const getMeRoutes = require('./routes/getMeRoutes');
 const discoverExplorersRoutes = require('./routes/discoverExplorersRoutes');
+const hotelBookingsRoutes = require('./routes/hotelBookingsRoutes');
 
 app.use(express.json());
 app.use(cors());
@@ -24,6 +25,7 @@ app.use('/usersReg', usersRegRoutes);
 app.use('/usersLog', usersLogRoutes);
 app.use('/getMe', getMeRoutes);
 app.use('/discoverExplorers', discoverExplorersRoutes);
+app.use('/hotelBookings', hotelBookingsRoutes);
 
 
 
