@@ -4,7 +4,7 @@ const usersLogControllers=require('../controllers/userLogControllers');
 
 router.route('/').post(usersLogControllers.postLogUser)
 router.route('/forgotPassword').post(usersLogControllers.postForgotPasswordUser)
-router.route('/forgotPassword/newPassword').post(usersLogControllers.postNewtPasswordUser)
+router.route('/newPassword').post(usersLogControllers.postNewtPasswordUser)
 
 
 module.exports=router;
