@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-    res.send("Ovigo App is working! YaY!");
+    res.send("Ovigo App is working ! YaY!");
 });
 
 
