@@ -10,6 +10,7 @@ const connectDB = require("./server");
 const usersRegRoutes = require('./routes/usersRegRoutes');
 const usersLogRoutes = require('./routes/userLogRoutes');
 const getMeRoutes = require('./routes/getMeRoutes');
+const discoverExplorersRoutes = require('./routes/discoverExplorersRoutes');
 
 app.use(express.json());
 app.use(cors());
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 app.use('/usersReg', usersRegRoutes);
 app.use('/usersLog', usersLogRoutes);
 app.use('/getMe', getMeRoutes);
+app.use('/discoverExplorers', discoverExplorersRoutes);
 
 
 
