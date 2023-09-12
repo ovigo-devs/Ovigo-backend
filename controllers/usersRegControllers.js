@@ -1,7 +1,7 @@
 const { getRegUserServices, postRegUserServices, updateRegUserOTPServices } = require("../services/usersRegServices");
 const bcrypt = require("bcryptjs");
 const saltRounds = 10
-const { sendRegistrationOTP } = require("../midleware/authenticationEmail/maiGunSendOTP");
+const { SendMail } = require("../midleware/authenticationEmail/maiGunSendOTP");
 
 exports.postRegUser = async (req, res, next) => {
     try {
@@ -22,7 +22,8 @@ exports.postRegUser = async (req, res, next) => {
             if (!result) {
                 return res.send('User Not Added. Something Wrong');
             } else {
-                await sendRegistrationOTP(result?.otp, result?.email)
+                // await sendRegistrationOTP(result?.otp, result?.email)
+                await SendMail(result?.otp, result?.email)
                 res.status(200).json({
                     status: 'Successfully',
                     data: result
@@ -79,7 +80,7 @@ exports.postRegUserResendCode = async (req, res, next) => {
         const updateOTP = await updateRegUserOTPServices(otp, user?._id);
         if(updateOTP?.modifiedCount > 0){
             const newOtp = await getRegUserServices(email);
-            await sendRegistrationOTP(newOtp?.otp, email);
+            await SendMail(newOtp?.otp, email);
             res.send({
                 message: "New OTP Send",
                 otp: newOtp?.otp

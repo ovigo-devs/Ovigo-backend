@@ -3,7 +3,7 @@ const saltRounds = 10
 const dotenv = require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const { getLogUsersService, updateLogUsersNewPasswordService } = require("../services/userLogServices");
-const { sendForgotPasswordLink } = require("../midleware/authenticationEmail/sendForgotEmaiLink");
+const { sendForgotPasswordLink, SendMailForgotPassword } = require("../midleware/authenticationEmail/sendForgotEmaiLink");
 
 exports.postLogUser = async (req, res, next) => {
     try {
@@ -54,7 +54,8 @@ exports.postForgotPasswordUser = async (req, res, next) => {
             })
         }
 
-        await sendForgotPasswordLink(user?.email)
+        // await sendForgotPasswordLink(user?.email);
+        await SendMailForgotPassword(user?.email);
 
         // const token = jwt.sign({ email }, process.env.ACCESS_TOKEN);
         // ovigoForgotToken: token,
