@@ -1,4 +1,12 @@
+exports.getAllPlacesService = async (stay, place) => {
+    const allPlaces = await AllPlaces.find({ stay: "nobel", place: "kamal" });
+    return allPlaces;
+  }
 
+  
+
+
+  
 
 const totalData = (total) =>{
     const data = {
@@ -150,3 +158,62 @@ const totalData = (total) =>{
 //     ]
 //   }
   
+
+
+// [
+// {
+//     name: "sundorbon8",
+//     extraBenefit: "no",
+//     benefit: "yes",
+//     about: "test data",
+// },
+// {
+//     name: "sundorbon7",
+//     extraBenefit: "no",
+//     benefit: "yes",
+//     about: "test data",
+
+// },
+// {
+//     name: "sundorbon6",
+//     extraBenefit: "yes",
+//     benefit: "yes",
+//     about: "test data",
+
+// },
+// {
+//     name: "sundorbon5",
+//     extraBenefit: "no",
+//     benefit: "yes",
+//     about: "test data",
+
+// },
+// {
+//     name: "sundorbon4",
+//     extraBenefit: "no",
+//     benefit: "yes",
+//     about: "test data",
+
+// },
+// {
+//     name: "sundorbon3",
+//     extraBenefit: "yes",
+//     benefit: "yes",
+//     about: "test data",
+
+// },
+// {
+//     name: "sundorbon2",
+//     extraBenefit: "no",
+//     benefit: "yes",
+//     about: "test data",
+
+// },
+// {
+//     name: "sundorbon1",
+//     extraBenefit: "yes",
+//     benefit: "yes",
+//     about: "test data",
+
+// }
+// ]

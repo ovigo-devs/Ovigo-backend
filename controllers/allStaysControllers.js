@@ -1,10 +1,11 @@
 
 const { getAllPlacesService, getOnePlacesService, postAllPlacesService } = require('../services/allPlacesServices');
+const { postAllStaysService, getAllStaysService, getOneStaysService } = require('../services/allStaysServices');
 
-exports.postAllPlaces = async (req, res, next) => {
+exports.postAllStays = async (req, res, next) => {
     try {
         const data = req.body;
-        const result= await postAllPlacesService(data);
+        const result= await postAllStaysService(data);
         if(result){
             res.status(200).json({
                 status: 'Successfully',
@@ -28,11 +29,10 @@ exports.postAllPlaces = async (req, res, next) => {
     }
 }
 
-exports.getAllPlaces = async (req, res, next) => {
+exports.getAllStays = async (req, res, next) => {
     try {
-
-        const data= await getAllPlacesService();
-        console.log(data);
+        const place_name = req.body.place_name
+        const data= await getAllStaysService(place_name);
         if(data){
             res.status(200).json({
                 status: 'Successfully',
@@ -56,10 +56,10 @@ exports.getAllPlaces = async (req, res, next) => {
     }
 }
 
-exports.getOnePlaces = async (req, res, next) => {
+exports.getOneStays = async (req, res, next) => {
     try {
         const id = req.params.id;
-        const data= await getOnePlacesService(id);
+        const data= await getOneStaysService(id);
         if(data){
             res.status(200).json({
                 status: 'Successfully',

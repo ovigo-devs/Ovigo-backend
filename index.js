@@ -11,6 +11,7 @@ const usersRegRoutes = require('./routes/usersRegRoutes');
 const usersLogRoutes = require('./routes/userLogRoutes');
 const getMeRoutes = require('./routes/getMeRoutes');
 const allPlacesRoutes = require('./routes/allPlacesRoutes');
+const allStayRoutes = require('./routes/allStaysRoutes');
 const hotelBookingsRoutes = require('./routes/hotelBookingsRoutes.js');
 
 app.use(express.json());
@@ -25,6 +26,7 @@ app.use('/usersReg', usersRegRoutes);
 app.use('/usersLog', usersLogRoutes);
 app.use('/getMe', getMeRoutes);
 app.use('/allPlaces', allPlacesRoutes);
+app.use('/allStays', allStayRoutes);
 app.use('/hotelBookings', hotelBookingsRoutes);
 
 
