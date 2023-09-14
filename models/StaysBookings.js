@@ -1,7 +1,7 @@
 
 const mongoose = require("mongoose");
 
-const hotelBookingsSchema = new mongoose.Schema({
+const staysBookingsSchema = new mongoose.Schema({
     owner_email: {
         required: true,
         type: String
@@ -65,6 +65,6 @@ const hotelBookingsSchema = new mongoose.Schema({
     
 })
 
-const HotelBookings = mongoose.model("hotelbookings", hotelBookingsSchema);
+const StaysBookings = mongoose.model("hotelbookings", staysBookingsSchema);
 
-module.exports = HotelBookings;
+module.exports = StaysBookings;

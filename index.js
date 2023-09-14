@@ -12,7 +12,7 @@ const usersLogRoutes = require('./routes/userLogRoutes');
 const getMeRoutes = require('./routes/getMeRoutes');
 const allPlacesRoutes = require('./routes/allPlacesRoutes');
 const allStayRoutes = require('./routes/allStaysRoutes');
-const hotelBookingsRoutes = require('./routes/hotelBookingsRoutes.js');
+const staysBookingsRoutes = require('./routes/staysBookingsRoutes.js');
 
 app.use(express.json());
 app.use(cors());
@@ -27,7 +27,7 @@ app.use('/usersLog', usersLogRoutes);
 app.use('/getMe', getMeRoutes);
 app.use('/allPlaces', allPlacesRoutes);
 app.use('/allStays', allStayRoutes);
-app.use('/hotelBookings', hotelBookingsRoutes);
+app.use('/staysBookings', staysBookingsRoutes);
 
 
 

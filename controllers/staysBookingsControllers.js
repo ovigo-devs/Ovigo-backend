@@ -1,10 +1,10 @@
+const { postStaysBookingsService } = require("../services/staysBookingsServices");
 
-const { postHotelBookingsService } = require('../services/hotelBookingsServices');
 
-exports.PostHotelBookings = async (req, res, next) => {
+exports.PostStaysBookings = async (req, res, next) => {
     try {
         const data = req.body;
-        const result= await postHotelBookingsService(data);
+        const result= await postStaysBookingsService(data);
         if(result){
             res.status(200).json({
                 status: 'Successfully',
