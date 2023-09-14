@@ -2,6 +2,7 @@ const Users = require("../models/Users")
 
 
 exports.getRegUserServices = async (email) => {
+    // const user = await Users.deleteMany({ });
     const user = await Users.findOne({ email: email }).select('-password -phone -role -__v');
     return user;
 }
@@ -19,9 +20,13 @@ exports.postRegUserServices = async (data) => {
 }
 
 exports.updateRegUserOTPServices = async (otp, id) => {
-    const findUser = await Users.findOne({_id:id})
-    const users = await Users.updateOne(findUser, {otp: otp}, {
+    const findUserAndUpdateOTP = await Users.findOneAndUpdate({_id: id}, {otp: otp}, {
         runValidators: true
     });
-    return users;
+    return findUserAndUpdateOTP;
+    // const findUser = await Users.findOne({_id:id})
+    // const users = await Users.updateOne(findUser, {otp: otp}, {
+    //     runValidators: true
+    // });
+    // return users;
 }

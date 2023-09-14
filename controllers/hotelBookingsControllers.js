@@ -1,20 +1,19 @@
-const { postHotelBookingsServices } = require("../services/hotelBookingsServices");
 
+const { postHotelBookingsService } = require('../services/hotelBookingsServices');
 
-
-exports.postHotelBookings = async (req, res, next) => {
+exports.PostHotelBookings = async (req, res, next) => {
     try {
         const data = req.body;
-        const result= await postHotelBookingsServices(data);
+        const result= await postHotelBookingsService(data);
         if(result){
             res.status(200).json({
-                message: 'Successfully Added',
+                status: 'Successfully',
                 data: result
             })
         }else{
             res.status(400).json({
                 status: 'Failled',
-                message: "Hotel Booking Failed",
+                message: "Data Get Failed",
                 error: error.message
             })
         }
@@ -23,7 +22,7 @@ exports.postHotelBookings = async (req, res, next) => {
     } catch (error) {
         res.status(400).json({
             status: 'Failled',
-            message: "Hotel Booking Failed",
+            message: "Data Get Failed",
             error: error.message
         })
     }

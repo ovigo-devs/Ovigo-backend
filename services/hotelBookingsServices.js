@@ -1,7 +1,8 @@
 const HotelBookings = require("../models/HotelBookings");
 
 
-exports.postHotelBookingsServices = async (data) => {
-    const postHotelBookings = await HotelBookings.create(data);
-    return postHotelBookings;
+
+exports.postHotelBookingsService = async (data) => {
+    const allPlaces = await HotelBookings.create(data);
+    return allPlaces;
 }
