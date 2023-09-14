@@ -30,3 +30,14 @@ exports.updateRegUserOTPServices = async (otp, id) => {
     // });
     // return users;
 }
+
+exports.updateUserInfoService = async (data) => {
+    try {
+        const updateUserInfo = await Users.findOneAndUpdate({email: data?.email}, data, {
+            runValidators: true
+        }).select('-password -otp -__v');
+        return updateUserInfo;
+    } catch (error) {
+        console.log(error);
+    }
+}

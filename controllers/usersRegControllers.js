@@ -1,4 +1,4 @@
-const { getRegUserServices, postRegUserServices, updateRegUserOTPServices } = require("../services/usersRegServices");
+const { getRegUserServices, postRegUserServices, updateRegUserOTPServices, updateUserInfoService } = require("../services/usersRegServices");
 const bcrypt = require("bcryptjs");
 const saltRounds = 10
 const { SendMail } = require("../midleware/authenticationEmail/maiGunSendOTP");
@@ -99,5 +99,26 @@ exports.postRegUserResendCode = async (req, res, next) => {
             error: error.message
         })
     }
+}
+
+exports.updateUserInfo = async (req, res, next) => {
+    try {
+        const data = req.body;
+        const result = await updateUserInfoService(data);
+        if (!result) {
+            return res.send('Nothing Update');
+        }
+        res.status(200).json({
+            status: 'Successfully Updated',
+            data: result
+        })
+
+} catch (error) {
+    res.status(400).json({
+        status: 'Failled',
+        message: "Nothing Update",
+        error: error.message
+    })
+}
 }
 

@@ -65,6 +65,6 @@ const staysBookingsSchema = new mongoose.Schema({
     
 })
 
-const StaysBookings = mongoose.model("hotelbookings", staysBookingsSchema);
+const StaysBookings = mongoose.model("staysbookings", staysBookingsSchema);
 
 module.exports = StaysBookings;
