@@ -4,6 +4,7 @@ const getMeControllers=require('../controllers/getMeControllers');
 
 
 router.route('/').get(getMeControllers.getMeUser)
+router.route('/:email').get(getMeControllers.getUserInformation)
 
 
 module.exports=router;
