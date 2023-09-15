@@ -5,8 +5,8 @@ const { getMeUsersService } = require('../services/getMeServices');
 
 exports.getMeUser = async (req, res, next) => {
     try {
-        // const token = req.headers?.authorization?.split(" ")?.[1];
-        const token = req.headers?.authorization;
+        const token = await req.headers?.authorization?.split(" ")?.[1];
+        // const token = req.headers?.authorization;
         const decode = await promisify(jwt.verify)(token, process.env.ACCESS_TOKEN);
 
         const user= await getMeUsersService(decode.email);
