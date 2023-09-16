@@ -73,4 +73,3 @@ const allStaysSchema = new mongoose.Schema({
 const AllStays = mongoose.model("allstays", allStaysSchema);
 
 module.exports = AllStays;
-
