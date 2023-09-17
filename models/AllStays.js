@@ -62,6 +62,12 @@ const allStaysSchema = new mongoose.Schema({
     review: {
         type: String
     },
+    room_type: {
+        type: String
+    },
+    room_name: {
+        type: String
+    },
     partner: {
         type: String
     },
