@@ -4,9 +4,7 @@ const { getAllPlacesService, getOnePlacesService, postAllPlacesService } = requi
 exports.postAllPlaces = async (req, res, next) => {
     try {
         const data = req.body;
-        console.log(data);
         const result= await postAllPlacesService(data);
-        // console.log(result);
         if(result){
             res.status(200).json({
                 status: 'Successfully',

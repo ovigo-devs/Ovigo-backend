@@ -14,23 +14,45 @@ const staysBookingsSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    hotel_name: {
+    place_name: {
+        required: true,
+        type: String
+    },
+    place_location: {
+        required: true,
+        type: String
+    },
+    service_name: {
+        required: true,
+        type: String
+    },
+    service_type: {
+        required: true,
+        type: String
+    },
+    service_type_name: {
         type: String,
         required: [true, "Hotel Name must be required"],
         minLength: [3, "At least 3 caracted must be provide"],
         maxLength: [30, "Name is to large"],
     },
-    hotel_place: {
+    service_type_place: {
         type: String,
         required: [true, "Hotel Place must be required"],
         minLength: [3, "At least 3 caracted must be provide"],
         maxLength: [30, "Name is to large"],
     },
-    hotel_image: {
+    service_type_location: {
+        type: String,
+        required: [true, "Hotel Place must be required"],
+        minLength: [3, "At least 3 caracted must be provide"],
+        maxLength: [30, "Name is to large"],
+    },
+    service_type_image: {
         required: true,
         type: String
     },
-    hotel_detailsId: {
+    service_type_detailsId: {
         required: true,
         type: String
     },
@@ -61,8 +83,7 @@ const staysBookingsSchema = new mongoose.Schema({
     room_oldPrice: {
         required: false,
         type: Number
-    }
-    
+    }  
 })
 
 const StaysBookings = mongoose.model("staysbookings", staysBookingsSchema);

@@ -31,7 +31,7 @@ exports.postAllStays = async (req, res, next) => {
 
 exports.getAllStays = async (req, res, next) => {
     try {
-        const place_name = req.body.place_name
+        const place_name = req.body.place_name;
         const data= await getAllStaysService(place_name);
         if(data){
             res.status(200).json({
