@@ -17,13 +17,10 @@ const AllTouristSpotNameSchema = new mongoose.Schema({
         required: [true, "Place Name must be required"]
     },
     activity: {
-        type: String,
-        required: [true, "Location Name must be required"]
+        type: String
     },
     remarkable_address: {
-        type: String,
-        required: [true, "Remarkable Address Name must be required"],
-        minLength: [3, "At least 3 caracted must be provide"]
+        type: String
     },
     known_as: {
         type: String
