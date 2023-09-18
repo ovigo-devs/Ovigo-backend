@@ -1,22 +1,20 @@
 
 const mongoose = require("mongoose");
 
-const usersRegSchema = new mongoose.Schema({
+const businessUsersRegSchema = new mongoose.Schema({
     email: {
         required: true,
         type: String
     },
     phone: {
-        required: true,
         type: String
     },
     password: {
-        required: true,
         type: String
     },
     role: {
         type: String,
-        default: "user",
+        default: "businessUser",
     },
     otp: {
         type: String
@@ -66,6 +64,6 @@ const usersRegSchema = new mongoose.Schema({
     }
 })
 
-const Users = mongoose.model("users", usersRegSchema);
+const BusinessUsers = mongoose.model("businessusers", businessUsersRegSchema);
 
-module.exports = Users;
+module.exports = BusinessUsers;
