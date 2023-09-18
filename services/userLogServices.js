@@ -1,6 +1,5 @@
 const Users = require("../models/Users");
-const bcrypt = require("bcryptjs")
-const saltRounds = 10
+
 
 exports.getLogUsersService = async (email) => {
     const users = await Users.findOne({ email: email });
