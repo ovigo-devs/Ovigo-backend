@@ -1,5 +1,4 @@
 
-const { getAllPlacesService, getOnePlacesService, postAllPlacesService } = require('../services/allPlacesServices');
 const { postAllStaysService, getAllStaysService, getOneStaysService } = require('../services/allStaysServices');
 
 exports.postAllStays = async (req, res, next) => {

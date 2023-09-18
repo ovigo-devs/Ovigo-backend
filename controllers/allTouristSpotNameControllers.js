@@ -1,10 +1,10 @@
+const { postAllTouristSpotNameService, getAllTouristSpotNameService } = require("../services/allTouristSpotNameService");
 
-const { getAllPlacesService, getOnePlacesService, postAllPlacesService } = require('../services/allPlacesServices');
 
-exports.postAllPlaces = async (req, res, next) => {
+exports.postAllTouristSpot = async (req, res, next) => {
     try {
         const data = req.body;
-        const result= await postAllPlacesService(data);
+        const result= await postAllTouristSpotNameService(data);
         if(result){
             res.status(200).json({
                 status: 'Successfully',
@@ -28,37 +28,10 @@ exports.postAllPlaces = async (req, res, next) => {
     }
 }
 
-exports.getAllPlaces = async (req, res, next) => {
+exports.getAllTouristSpot = async (req, res, next) => {
     try {
 
-        const data= await getAllPlacesService();
-        if(data){
-            res.status(200).json({
-                status: 'Successfully',
-                data: data
-            })
-        }else{
-            res.status(400).json({
-                status: 'Failled',
-                message: "Data Get Failed",
-                error: error.message
-            })
-        }
-        
-
-    } catch (error) {
-        res.status(400).json({
-            status: 'Failled',
-            message: "Data Get Failed",
-            error: error.message
-        })
-    }
-}
-
-exports.getOnePlaces = async (req, res, next) => {
-    try {
-        const id = req.params.id;
-        const data= await getOnePlacesService(id);
+        const data= await getAllTouristSpotNameService();
         if(data){
             res.status(200).json({
                 status: 'Successfully',
