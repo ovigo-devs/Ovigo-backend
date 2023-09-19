@@ -79,7 +79,7 @@ exports.postRegUserResendCode = async (req, res, next) => {
         }
         const otp = Math.floor(1000 + Math.random() * 9000);
         const updateOTP = await updateBusinessRegUserOTPServices(otp, user?._id);
-        if (updateOTP?.modifiedCount > 0) {
+        if (updateOTP) {
             const newOtp = await getBusinessRegUserServices(email);
             await SendMail(newOtp?.otp, email);
             res.send({

@@ -1,7 +1,7 @@
 const { promisify } = require('util');
 const dotenv = require("dotenv").config();
 const jwt = require("jsonwebtoken");
-const { getMeUsersService, getUsersInformationService } = require('../services/getMeServices');
+const { getMeUsersService, getUsersInformationService, getMeBusinessUsersService } = require('../services/getMeServices');
 const bcrypt = require("bcryptjs")
 const saltRounds = 10
 
@@ -12,6 +12,7 @@ exports.getMeUser = async (req, res, next) => {
         const decode = await promisify(jwt.verify)(token, process.env.ACCESS_TOKEN);
 
         const user = await getMeUsersService(decode.email);
+
         if (user) {
             res.status(200).json({
                 status: 'Successfully',
@@ -20,12 +21,36 @@ exports.getMeUser = async (req, res, next) => {
                 userRole: user.role,
             })
         } else {
+            const BusinessUser = await getMeBusinessUsersService(decode.email);
+            if (BusinessUser) {
+                res.status(200).json({
+                    status: 'Successfully',
+                    email: decode.email,
+                    userPhone: user.phone,
+                    userRole: user.role,
+                })
+            } 
             res.status(400).json({
                 status: 'Failled',
                 message: "Token is not valid",
                 error: error.message
             })
         }
+
+        // if (user) {
+        //     res.status(200).json({
+        //         status: 'Successfully',
+        //         email: decode.email,
+        //         userPhone: user.phone,
+        //         userRole: user.role,
+        //     })
+        // } else {
+        //     res.status(400).json({
+        //         status: 'Failled',
+        //         message: "Token is not valid",
+        //         error: error.message
+        //     })
+        // }
 
 
     } catch (error) {

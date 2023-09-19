@@ -4,20 +4,13 @@ const saltRounds = 10
 
 exports.getBusinessRegUserServices = async (email) => {
     // const user = await Users.deleteMany({ });
-    const user = await BusinessUsers.findOne({ email: email }).select('-password -phone -role -__v');
+    const user = await BusinessUsers.findOne({ email: email });
     return user;
 }
 
 exports.postBusinessRegUserServices = async (data) => {
     const user = await BusinessUsers.create(data);
-
-    const selectedUser = user.toObject(); // Convert to a plain JavaScript object
-    delete selectedUser.password;
-    delete selectedUser.phone;
-    delete selectedUser.role;
-    delete selectedUser.__v;
-
-    return selectedUser;
+    return user;
 }
 
 exports.updateBusinessRegUserOTPServices = async (otp, id) => {

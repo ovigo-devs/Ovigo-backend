@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs")
 const saltRounds = 10
 const dotenv = require("dotenv").config();
 const jwt = require("jsonwebtoken");
-const { sendForgotPasswordLink, SendMailForgotPassword } = require("../midleware/authenticationEmail/sendForgotEmaiLink");
+// const { sendForgotPasswordLink, SendMailForgotPassword } = require("../midleware/authenticationEmail/sendForgotEmaiLink");
 const { getBusinessLogUsersService } = require("../services/businessUsersLogServices");
 
 exports.postBusinessLogUser = async (req, res, next) => {
@@ -30,7 +30,7 @@ exports.postBusinessLogUser = async (req, res, next) => {
         }
 
         const token = jwt.sign({ email }, process.env.ACCESS_TOKEN);
-        return res.send({ ovigoLogInToken: token })
+        return res.send({ ovigoLogInToken: token });
 
     } catch (error) {
         res.status(400).json({
