@@ -16,6 +16,7 @@ const staysBookingsRoutes = require('./routes/staysBookingsRoutes.js');
 const allTouristSpotNameRoute = require('./routes/allTouristSpotNameRoute');
 const businessUsersRegRoute = require('./routes/businessUsersRegRoutes');
 const businessUsersLogRoute = require('./routes/BusinessUserLogRoutes');
+const businessServicesAddRoute = require('./routes/businessServicesAddRoutes');
 
 app.use(express.json());
 app.use(cors());
@@ -34,6 +35,7 @@ app.use('/staysBookings', staysBookingsRoutes);
 app.use('/allTouristSpot', allTouristSpotNameRoute);
 app.use('/businessUsersReg', businessUsersRegRoute);
 app.use('/businessUsersLog', businessUsersLogRoute);
+app.use('/businessServicesAdd', businessServicesAddRoute);
 
 
 

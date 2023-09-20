@@ -299,6 +299,10 @@ const allStaysSchema = new mongoose.Schema({
     special_partner: {
         type: String,
         default: "NO"
+    },
+    status: {
+        type: String,
+        default: "Not Approve"
     }
 })
 

@@ -35,7 +35,7 @@ exports.updateBusinessUserInfoService = async (data) => {
                 first_name: data?.first_name,
                 last_name: data?.last_name
             }
-            const updateUser = await Users.findOneAndUpdate({ email: data?.email }, updateUserInfo, {
+            const updateUser = await BusinessUsers.findOneAndUpdate({ email: data?.email }, updateUserInfo, {
                 runValidators: true
             }).select('-password -otp -__v');
             return updateUser;
