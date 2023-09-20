@@ -26,8 +26,8 @@ exports.getMeUser = async (req, res, next) => {
                 return res.status(200).json({
                     status: 'Successfully',
                     email: decode.email,
-                    userPhone: user.phone,
-                    userRole: user.role,
+                    userPhone: BusinessUser.phone,
+                    userRole: BusinessUser.role,
                 })
             } 
             res.status(400).json({
