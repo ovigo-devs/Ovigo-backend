@@ -265,7 +265,7 @@ const allStaysSchema = new mongoose.Schema({
         type: Number
     },
     room_main_image: {
-        require: [true, "Main image needed"],
+        require: [true, "Main image need"],
         type: String
     },
     room_another_image: [
