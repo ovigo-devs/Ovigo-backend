@@ -1,83 +1,5 @@
 const mongoose = require("mongoose");
 const allStaysSchema = new mongoose.Schema({
-    // place_name: {
-    //     type: String,
-    //     // required: [true, "Place Name must be required"],
-    //     // minLength: [3, "At least 3 caracted must be provide"],
-    //     // maxLength: [40, "Name is to large"],
-    // },
-    // location_name: {
-    //     type: String,
-    //     // required: [true, "Location Name must be required"],
-    //     // minLength: [3, "At least 3 caracted must be provide"],
-    //     // maxLength: [40, "Name is to large"],
-    // },
-    // service: {
-    //     type: String,
-    //     // required: [true, "Service Name must be required"],
-    //     // minLength: [3, "At least 3 caracted must be provide"],
-    //     // maxLength: [40, "Name is to large"],
-    // },
-    // service_type: {
-    //     type: String,
-    //     // required: [true, "Service type Name must be required"],
-    //     // minLength: [3, "At least 3 caracted must be provide"],
-    //     // maxLength: [40, "Name is to large"],
-    // },
-    // name: {
-    //     type: String,
-    //     // required: [true, "Name must be required"],
-    //     // minLength: [3, "At least 3 caracted must be provide"],
-    //     // maxLength: [40, "Name is to large"],
-    // },
-    // location: {
-    //     type: String,
-    //     // required: [true, "Location Name must be required"],
-    //     // minLength: [3, "At least 3 caracted must be provide"],
-    //     // maxLength: [40, "Name is to large"],
-    // },
-    // image: [
-    //     {
-    //         image: String,
-    //     },
-    // ],
-    // ratting: {
-    //     type: String
-    // },
-    // price: {
-    //     type: String
-    // },
-    // old_price: {
-    //     type: String
-    // },
-    // about: {
-    //     type: String
-    // },
-    // pacilities: {
-    //     type: String
-    // },
-    // about_location: {
-    //     type: String
-    // },
-    // review: {
-    //     type: String
-    // },
-    // room_type: {
-    //     type: String
-    // },
-    // room_name: {
-    //     type: String
-    // },
-    // partner: {
-    //     type: String
-    // },
-    // special_partner: {
-    //     type: String
-    // }
-
-
-
-    // New Schema
     service_type: {
         type: String,
         required: [true, "Type Name must be required"],
@@ -139,8 +61,8 @@ const allStaysSchema = new mongoose.Schema({
         }
     ],
     serve_breakfast: {
-        require: [true, "Breakfat Should Yes Or No"],
-        type: String
+        type: String,
+        required: [true, "Breakfat Should Yes Or No"],
     },
     breakfast_include_main_price: {
         type: String
@@ -154,8 +76,8 @@ const allStaysSchema = new mongoose.Schema({
         }
     ],
     parking_available: {
-        require: [true, "Parking Type Should Fill Up"],
-        type: String
+        type: String,
+        required: [true, "Parking Type Should Fill Up"],
     },
     reserve_parking_spot: {
         type: String
@@ -168,82 +90,77 @@ const allStaysSchema = new mongoose.Schema({
     },
     hotel_staff_speak: [
         {
-            require: [true, "Hotel Staff Speak Need"],
             staff_speak: String
         }
     ],
     check_in_time_from: {
-        require: [true, "Hotel Check In From Time Need"],
-        type: String
+        type: String,
+        required: [true, "Hotel Check In From Time Need"],
     },
     check_in_time_to: {
-        require: [true, "Hotel Check In To Time Need"],
-        type: String
+        type: String,
+        required: [true, "Hotel Check In To Time Need"],
     },
     check_out_time_from: {
-        require: [true, "Hotel Check Out From Time Need"],
-        type: String
+        type: String,
+        required: [true, "Hotel Check Out From Time Need"],
     },
     check_out_time_to: {
-        require: [true, "Hotel Check Out To Time Need"],
-        type: String
+        type: String,
+        required: [true, "Hotel Check Out To Time Need"],
     },
     allow_children: {
-        require: [true, "Allow Children Should Yes or No"],
-        type: String
+        type: String,
+        required: [true, "Allow Children Should Yes or No"],
     },
     allow_pets: {
-        require: [true, "Allow Pets Should Yes or No"],
-        type: String
+        type: String,
+        required: [true, "Allow Pets Should Yes or No"],
     },
     allow_petPrice: {
         type: Number
     },
     room_type: {
-        require: [true, "Room Type Required"],
-        type: String
+        type: String,
+        required: [true, "Room Type Required"],
     },
     total_room: {
-        require: [true, "Total Room Number Required"],
-        type: Number
+        type: Number,
+        required: [true, "Total Room Number Required"],
     },
     room_type_bed: [
         {
-            require: [true, "Room Bed Type Required"],
             bed_name: String,
             bed_number: Number
         }
     ],
     total_person_stay: {
-        require: [true, "How many guest stay required"],
-        type: Number
+        type: Number,
+        required: [true, "How many guest stay required"],
     },
     room_size: {
         type: String
     },
     allow_smoking: {
-        require: [true, "You Allaw Smoking Required"],
-        type: String
+        type: String,
+        required: [true, "You Allaw Smoking Required"],
     },
     bathroom_private: {
-        require: [true, "Private Birthroom Details Required"],
-        type: String
+        type: String,
+        required: [true, "Private Birthroom Details Required"],
     },
     bathroom_service: [
         {
-            require: [true, "Bathroom Details Required"],
             service_name: String
         }
     ],
     room_general_amenities: [
         {
-            require: [true, "Room Amenities Details Required"],
             service_name: String
         }
     ],
     outdoor_view: [
         {
-            require: [true, "Room Outdoor View Details Required"],
             outdoor_view: String
         }
     ],
@@ -252,35 +169,33 @@ const allStaysSchema = new mongoose.Schema({
     },
     room_food_drinks: [
         {
-            require: [true, "Room Food And Drinks Details Required"],
             service_name: String
         }
     ],
     room_name: {
-        require: [true, "Room Name Must Provide"],
-        type: String
+        type: String,
+        required: [true, "Room Name Must Provide"],
     },
     room_price: {
-        require: [true, "Room Price Must Provide"],
-        type: Number
+        type: Number,
+        required: [true, "Room Price Must Provide"],
     },
     room_main_image: {
-        require: [true, "Main image need"],
-        type: String
+        type: String,
+        required: [true, "Main image need"],
     },
     room_another_image: [
         {
-            require: [true, "Main image needed"],
             another_image: String
         }
     ],
     charge_credit_card: {
-        require: [true, "Charge Credit Card Should Yes or No"],
-        type: String
+        type: String,
+        required: [true, "Charge Credit Card Should Yes or No"]
     },
     invoice_name: {
-        require: [true, "Invoice Name Should Required"],
-        type: String
+        type: String,
+        required: [true, "Invoice Name Should Required"],
     },
     invoice_legal_company_name: {
         type: String
@@ -309,3 +224,84 @@ const allStaysSchema = new mongoose.Schema({
 const AllStays = mongoose.model("allstays", allStaysSchema);
 
 module.exports = AllStays;
+
+
+
+
+
+
+
+// place_name: {
+//     type: String,
+// required: [true, "Place Name must be required"],
+//     // minLength: [3, "At least 3 caracted must be provide"],
+//     // maxLength: [40, "Name is to large"],
+// },
+// location_name: {
+//     type: String,
+// required: [true, "Location Name must be required"],
+//     // minLength: [3, "At least 3 caracted must be provide"],
+//     // maxLength: [40, "Name is to large"],
+// },
+// service: {
+//     type: String,
+// required: [true, "Service Name must be required"],
+//     // minLength: [3, "At least 3 caracted must be provide"],
+//     // maxLength: [40, "Name is to large"],
+// },
+// service_type: {
+//     type: String,
+// required: [true, "Service type Name must be required"],
+//     // minLength: [3, "At least 3 caracted must be provide"],
+//     // maxLength: [40, "Name is to large"],
+// },
+// name: {
+//     type: String,
+// required: [true, "Name must be required"],
+//     // minLength: [3, "At least 3 caracted must be provide"],
+//     // maxLength: [40, "Name is to large"],
+// },
+// location: {
+//     type: String,
+// required: [true, "Location Name must be required"],
+//     // minLength: [3, "At least 3 caracted must be provide"],
+//     // maxLength: [40, "Name is to large"],
+// },
+// image: [
+//     {
+//         image: String,
+//     },
+// ],
+// ratting: {
+//     type: String
+// },
+// price: {
+//     type: String
+// },
+// old_price: {
+//     type: String
+// },
+// about: {
+//     type: String
+// },
+// pacilities: {
+//     type: String
+// },
+// about_location: {
+//     type: String
+// },
+// review: {
+//     type: String
+// },
+// room_type: {
+//     type: String
+// },
+// room_name: {
+//     type: String
+// },
+// partner: {
+//     type: String
+// },
+// special_partner: {
+//     type: String
+// }
