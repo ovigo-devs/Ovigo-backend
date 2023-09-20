@@ -10,8 +10,3 @@ exports.getMeBusinessUsersService = async (email) => {
     const users = await BusinessUsers.findOne({email:email}).select('-password -__v')
     return users;
 }
-
-exports.getUsersInformationService = async (email) => {
-    const users = await Users.findOne({email:email})
-    return users;
-}

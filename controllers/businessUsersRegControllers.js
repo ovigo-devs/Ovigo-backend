@@ -2,6 +2,8 @@ const { SendMail } = require("../midleware/authenticationEmail/maiGunSendOTP");
 
 const { getBusinessRegUserServices, postBusinessRegUserServices, updateBusinessRegUserOTPServices, updateBusinessUserInfoService } = require("../services/businessUsersRegServices");
 const { getRegUserServices } = require("../services/usersRegServices");
+const bcrypt = require("bcryptjs");
+const saltRounds = 10
 
 
 exports.postBusinessRegUser = async (req, res, next) => {
@@ -16,7 +18,7 @@ exports.postBusinessRegUser = async (req, res, next) => {
             return res.send({ message: 'Previously Added' })
         }
         const otp = Math.floor(1000 + Math.random() * 9000);
-        
+
         const newUser = {
             email: data.email,
             otp: otp
@@ -105,21 +107,33 @@ exports.postRegUserResendCode = async (req, res, next) => {
 exports.updateBusinessUserInfo = async (req, res, next) => {
     try {
         const data = req.body;
-        const result = await updateBusinessUserInfoService(data);
-        if (!result) {
-            return res.send('Nothing Update');
-        }
-        res.status(200).json({
-            status: 'Successfully Updated',
-            data: result
-        })
+        bcrypt.hash(data?.password, saltRounds, async function (err, hash) {
+            const updateUserInfo = {
+                email: data?.email,
+                password: hash,
+                phone: data?.phone,
+                first_name: data?.first_name,
+                last_name: data?.last_name
+            }
 
-} catch (error) {
-    res.status(400).json({
-        status: 'Failled',
-        message: "Nothing Update",
-        error: error.message
-    })
-}
+            const result = await updateBusinessUserInfoService(updateUserInfo);
+            if (result?.modifiedCount > 0) {
+                return res.status(200).json({
+                    status: 'Successfully Updated',
+                    data: result
+                })
+            }
+            return res.status(400).json({
+                status: 'Nothing Update',
+                data: result
+            })
+        });
+    } catch (error) {
+        res.status(400).json({
+            status: 'Failled',
+            message: "Nothing Update",
+            error: error.message
+        })
+    }
 }
 

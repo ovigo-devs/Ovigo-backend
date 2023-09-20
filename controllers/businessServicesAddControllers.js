@@ -4,7 +4,7 @@ const { postAllStaysService } = require("../services/allStaysServices");
 exports.postAllBusinessServicesAdd = async (req, res, next) => {
     try {
         const data = req.body;
-        if (data?.service_type == "Stays") {
+        if (data?.service_type == "stays") {
             const result = await postAllStaysService(data);
             if (result) {
                 res.status(200).json({
@@ -25,8 +25,6 @@ exports.postAllBusinessServicesAdd = async (req, res, next) => {
                 error: error.message
             })
         }
-
-
 
     } catch (error) {
         res.status(400).json({

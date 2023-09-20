@@ -1,6 +1,4 @@
 const BusinessUsers = require("../models/BusinessUser");
-const bcrypt = require("bcryptjs");
-const saltRounds = 10
 
 exports.getBusinessRegUserServices = async (email) => {
     // const user = await Users.deleteMany({ });
@@ -27,19 +25,15 @@ exports.updateBusinessRegUserOTPServices = async (otp, id) => {
 
 exports.updateBusinessUserInfoService = async (data) => {
     try {
-        bcrypt.hash(data?.password, saltRounds, async function (err, hash) {
-            const updateUserInfo = {
-                email: data?.email,
-                password: hash,
-                phone: data?.phone,
-                first_name: data?.first_name,
-                last_name: data?.last_name
-            }
-            const updateUser = await BusinessUsers.findOneAndUpdate({ email: data?.email }, updateUserInfo, {
+        const findUser = await BusinessUsers.findOne({ email: data?.email })
+        if (findUser) {
+            const users = await BusinessUsers.updateOne(findUser, data, {
                 runValidators: true
-            }).select('-password -otp -__v');
-            return updateUser;
-        });
+            });
+            return users;
+        }else{
+            return null;
+        }
 
     } catch (error) {
         console.log(error);
