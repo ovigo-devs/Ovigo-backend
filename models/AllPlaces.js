@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const allPlacesSchema = new mongoose.Schema({
     country: {
         type: String,
-        required: [true, "Country Name must be required"]
+        default: "Bangladesh"
     },
     district: {
         type: String,
@@ -55,9 +55,6 @@ const allPlacesSchema = new mongoose.Schema({
             image: String,
         },
     ],
-    about: {
-        type: String
-    },
     history: {
         type: String
     },
@@ -78,9 +75,6 @@ const allPlacesSchema = new mongoose.Schema({
         type: String,
         default: "NO"
     },
-
-
-
 
     primary_place_name: {
         type: String,
