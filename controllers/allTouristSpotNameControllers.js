@@ -1,4 +1,4 @@
-const { postAllTouristSpotNameService, getAllTouristSpotNameService, gettAllTouristSpotNameBusinessHotelAddService } = require("../services/allTouristSpotNameService");
+const { postAllTouristSpotNameService, getAllTouristSpotNameService, gettAllTouristSpotNameBusinessHotelAddService, gettAllTouristPlaceNameBusinessHotelAddService } = require("../services/allTouristSpotNameService");
 
 
 exports.postAllTouristSpot = async (req, res, next) => {
@@ -89,7 +89,7 @@ exports.getAllTouristSpot = async (req, res, next) => {
 exports.getAllTouristSpotForBusinessHotelAddPlaceName = async (req, res, next) => {
     try {
         const {division, district, sub_district} = req.body;
-        const data = await gettAllTouristSpotNameBusinessHotelAddService(division, district, sub_district);
+        const data = await gettAllTouristPlaceNameBusinessHotelAddService(division, district, sub_district);
         if (data) {
             res.status(200).json({
                 status: 'Successfully',
