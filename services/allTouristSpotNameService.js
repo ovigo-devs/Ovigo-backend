@@ -35,9 +35,9 @@ exports.getAllTouristSpotNameService = async (query) => {
 
 exports.gettAllTouristPlaceNameBusinessHotelAddService = async (division, district, sub_district) => {
     const AllTouristSpot = await AllTouristSpotName.find({division: division, district: district, sub_district: sub_district});
-    console.log(AllTouristSpot);
     return AllTouristSpot;
 }
+
 exports.gettAllTouristSpotNameBusinessHotelAddService = async (place_name) => {
     const AllTouristSpot = await AllTouristSpotName.find({primary_place_name: place_name});
     return AllTouristSpot;
