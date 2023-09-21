@@ -16,6 +16,12 @@ const allPlacesSchema = new mongoose.Schema({
         type: String,
         required: [true, "Sub District Name must be required"]
     },
+    primary_place_name: {
+        type: String,
+        required: [true, "Place Name must be required"],
+        minLength: [3, "At least 3 caracted must be provide"],
+        maxLength: [40, "Name is to large"],
+    },
     place_name: {
         type: String,
         required: [true, "Place Name must be required"],
@@ -79,7 +85,7 @@ const allPlacesSchema = new mongoose.Schema({
     }
 });
 
-const AllPlaces = mongoose.model("allplaces", allPlacesSchema);
+const AllPlaces = mongoose.model("allsubplaces", allPlacesSchema);
 
 module.exports = AllPlaces;
 

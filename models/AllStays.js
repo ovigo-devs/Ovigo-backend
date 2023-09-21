@@ -20,7 +20,11 @@ const allStaysSchema = new mongoose.Schema({
         type: String,
         required: [true, "Country Name must be required"],
     },
-    city: {
+    sub_district: {
+        type: String,
+        required: [true, "Country Name must be required"],
+    },
+    district: {
         type: String,
         required: [true, "District Name must be required"],
     },
@@ -36,6 +40,16 @@ const allStaysSchema = new mongoose.Schema({
         type: String,
         required: [true, "Place must be required"],
     },
+    near_place_names: [
+        {
+            near_place_name: String
+        }
+    ],
+    near_spot_names: [
+        {
+            near_spot_name: String
+        }
+    ],
     hotel_address: {
         type: String,
         required: [true, "Hotel Address Name must be required"],

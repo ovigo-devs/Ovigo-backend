@@ -2,15 +2,15 @@ const mongoose = require("mongoose");
 const AllTouristSpotNameSchema = new mongoose.Schema({
     division: {
         type: String,
-        required: [true, "Place Name must be required"]
+        required: [true, "Division Name must be required"]
     },
     district: {
         type: String,
-        required: [true, "Location Name must be required"]
+        required: [true, "District Name must be required"]
     },
     sub_district: {
         type: String,
-        required: [true, "Place Name must be required"]
+        required: [true, "Sub District Name must be required"]
     },
     primary_place_name: {
         type: String,
@@ -18,7 +18,7 @@ const AllTouristSpotNameSchema = new mongoose.Schema({
     },
     spot_name: {
         type: String,
-        required: [true, "Place Name must be required"]
+        required: [true, "Spot Name must be required"]
     },
     activity: {
         type: String
@@ -35,10 +35,9 @@ const AllTouristSpotNameSchema = new mongoose.Schema({
     image: {
         type: String
     }
-})
+});
 
 const AllTouristSpotName = mongoose.model("touristspots", AllTouristSpotNameSchema);
 
 module.exports = AllTouristSpotName;
-
 
