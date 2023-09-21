@@ -20,6 +20,10 @@ const allStaysSchema = new mongoose.Schema({
         type: String,
         required: [true, "Country Name must be required"],
     },
+    street_name: {
+        type: String,
+        required: [true, "Country Name must be required"],
+    },
     sub_district: {
         type: String,
         required: [true, "Country Name must be required"],
