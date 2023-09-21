@@ -12,6 +12,10 @@ const AllTouristSpotNameSchema = new mongoose.Schema({
         type: String,
         required: [true, "Place Name must be required"]
     },
+    primary_place_name: {
+        type: String,
+        required: [true, "Primary Place Name must be required"]
+    },
     spot_name: {
         type: String,
         required: [true, "Place Name must be required"]
@@ -31,7 +35,6 @@ const AllTouristSpotNameSchema = new mongoose.Schema({
     image: {
         type: String
     }
-   
 })
 
 const AllTouristSpotName = mongoose.model("touristspots", AllTouristSpotNameSchema);
