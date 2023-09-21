@@ -40,11 +40,6 @@ const allStaysSchema = new mongoose.Schema({
         type: String,
         required: [true, "Place must be required"],
     },
-    near_place_names: [
-        {
-            near_place_name: String
-        }
-    ],
     near_spot_names: [
         {
             near_spot_name: String

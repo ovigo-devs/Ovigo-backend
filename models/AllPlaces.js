@@ -16,6 +16,7 @@ const allPlacesSchema = new mongoose.Schema({
         type: String,
         required: [true, "Sub District Name must be required"]
     },
+    // Spot name is place name
     place_name: {
         type: String,
         required: [true, "Place Name must be required"],
@@ -76,7 +77,31 @@ const allPlacesSchema = new mongoose.Schema({
     most_priority: {
         type: String,
         default: "NO"
+    },
+
+
+
+
+    primary_place_name: {
+        type: String,
+        required: [true, "Primary Place Name Required"]
+    },
+    activity: {
+        type: String
+    },
+    remarkable_address: {
+        type: String
+    },
+    known_as: {
+        type: String
+    },
+    about: {
+        type: String
+    },
+    image: {
+        type: String
     }
+
 });
 
 const AllPlaces = mongoose.model("allplaces", allPlacesSchema);
