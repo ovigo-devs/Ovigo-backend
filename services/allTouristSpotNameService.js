@@ -67,7 +67,7 @@ exports.gettAllTouristSpotNameBusinessHotelAddService = async (place_name) => {
 //     // Your data objects here
 //   ];
   
-//   // Function to remove duplicates based on a specific field
+  // Function to remove duplicates based on a specific field
 //   function removeDuplicates(data, field) {
 //     const uniqueData = [];
 //     const seen = new Set();
