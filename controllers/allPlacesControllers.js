@@ -6,6 +6,14 @@ exports.postAllPlaces = async (req, res, next) => {
         const data = req.body;
         const findData = await findAPlacesService(data?.place_name);
         if (findData) {
+            {
+                res.status(400).json({
+                    status: 'Failled',
+                    message: "This Place Submit Before",
+                    error: error.message
+                })
+            }
+        } else {
             const result = await postAllPlacesService(data);
             if (result) {
                 res.status(200).json({
@@ -19,14 +27,7 @@ exports.postAllPlaces = async (req, res, next) => {
                     error: error.message
                 })
             }
-        } else {
-            res.status(400).json({
-                status: 'Failled',
-                message: "This Place Submit Before",
-                error: error.message
-            })
         }
-
 
     } catch (error) {
         res.status(400).json({
