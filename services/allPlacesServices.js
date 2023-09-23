@@ -1,8 +1,8 @@
 const AllPlaces = require("../models/AllPlaces");
 
 
-exports.findAPlacesService = async (data) => {
-    const allPlaces = await AllPlaces.create(data);
+exports.findAPlacesService = async (place_name) => {
+    const allPlaces = await AllPlaces.findOne({place_name: place_name});
     return allPlaces;
 }
 
