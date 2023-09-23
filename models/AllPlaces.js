@@ -75,7 +75,6 @@ const allPlacesSchema = new mongoose.Schema({
         type: String,
         default: "NO"
     },
-
     primary_place_name: {
         type: String,
         required: [true, "Primary Place Name Required"]
@@ -95,7 +94,6 @@ const allPlacesSchema = new mongoose.Schema({
     image: {
         type: String
     }
-
 });
 
 const AllPlaces = mongoose.model("allplaces", allPlacesSchema);

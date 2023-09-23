@@ -1,6 +1,11 @@
 const AllPlaces = require("../models/AllPlaces");
 
 
+exports.findAPlacesService = async (data) => {
+    const allPlaces = await AllPlaces.create(data);
+    return allPlaces;
+}
+
 exports.postAllPlacesService = async (data) => {
     const allPlaces = await AllPlaces.create(data);
     return allPlaces;
