@@ -40,4 +40,3 @@ const AllTouristSpotNameSchema = new mongoose.Schema({
 const AllTouristSpotName = mongoose.model("touristspots", AllTouristSpotNameSchema);
 
 module.exports = AllTouristSpotName;
-

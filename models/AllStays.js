@@ -22,11 +22,11 @@ const allStaysSchema = new mongoose.Schema({
     },
     street_name: {
         type: String,
-        required: [true, "Country Name must be required"],
+        required: [true, "Street Name must be required"],
     },
     sub_district: {
         type: String,
-        required: [true, "Country Name must be required"],
+        required: [true, "Sub_District Name must be required"],
     },
     district: {
         type: String,
@@ -40,15 +40,31 @@ const allStaysSchema = new mongoose.Schema({
         type: String,
         required: [true, "Division Name must be required"],
     },
+    primary_place_name: {
+        type: String,
+        required: [true, "Primary Place Name Must Required"]
+    },
     place_name: {
         type: String,
         required: [true, "Place must be required"],
     },
     near_spot_names: [
         {
-            near_spot_name: String
+            near_spot_name: String,
+            about: String,
+            activity: String,
+            district: String,
+            Division: String,
+            image: String,
+            known_as: String,
+            primary_place_name: String,
+            remarkable_address: String,
+            sub_district: String
         }
     ],
+    spot_to_hotel_distance: {
+        type: String,
+    },
     hotel_address: {
         type: String,
         required: [true, "Hotel Address Name must be required"],
@@ -238,6 +254,7 @@ const AllStays = mongoose.model("allstays", allStaysSchema);
 
 module.exports = AllStays;
 
+//  chose a place add korar somoy primary_place_name neoa lagbe
 
 
 

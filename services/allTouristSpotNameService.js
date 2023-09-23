@@ -60,9 +60,6 @@ exports.gettAllTouristSpotNameBusinessHotelAddService = async (place_name) => {
 
 
 
-
-
-
 // const data = [
 //     // Your data objects here
 //   ];
