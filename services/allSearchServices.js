@@ -1,4 +1,5 @@
 const AllPlaces = require("../models/AllPlaces");
+const AllTouristSpotName = require("../models/AllTouristSpotName");
 
 
 exports.getAllSuggetionsStaysService = async (searchData) => {
@@ -9,5 +10,10 @@ exports.getAllSuggetionsStaysService = async (searchData) => {
 
 exports.getAllDestinationService = async () => {
     const allStay = await AllPlaces.find({  });
+    return allStay;
+}
+
+exports.getAllPlaceNameService = async (searchData) => {
+    const allStay = await AllTouristSpotName.find({ spot_name: searchData });
     return allStay;
 }

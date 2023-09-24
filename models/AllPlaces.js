@@ -28,6 +28,9 @@ const allPlacesSchema = new mongoose.Schema({
             image: String,
         },
     ],
+    overview_video: {
+        type: String
+    },
     tradition: [
         {
             title: String,
@@ -50,11 +53,17 @@ const allPlacesSchema = new mongoose.Schema({
             image: String,
         },
     ],
+    vr_video: {
+        image: String,
+    },
     discover_360_image: [
         {
             image: String,
         },
     ],
+    discover_360_video :{
+        type: String
+    },
     history: {
         type: String
     },

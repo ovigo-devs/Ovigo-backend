@@ -1,4 +1,4 @@
-const { getAllSuggetionsStaysService, getAllDestinationService } = require("../services/allSearchServices");
+const { getAllSuggetionsStaysService, getAllDestinationService, getAllPlaceNameService } = require("../services/allSearchServices");
 
 
 
@@ -33,6 +33,34 @@ exports.getSearchSuggetionsStays = async (req, res, next) => {
 exports.getAllDestinationTypeStays = async (req, res, next) => {
     try {
         const data = await getAllDestinationService();
+        if (data) {
+            res.status(200).json({
+                status: 'Successfully',
+                data: data
+            })
+        } else {
+            res.status(400).json({
+                status: 'Failled',
+                message: "Data Get Failed",
+                error: error.message
+            })
+        }
+
+
+    } catch (error) {
+        res.status(400).json({
+            status: 'Failled',
+            message: "Data Get Failed",
+            error: error.message
+        })
+    }
+}
+
+exports.getSpotNameSearchSuggetionsTouristSpot = async (req, res, next) => {
+    try {
+        const searchTerm = req.query.term;
+        const searchData = { $regex: searchTerm, $options: 'i' }
+        const data = await getAllPlaceNameService(searchData);
         if (data) {
             res.status(200).json({
                 status: 'Successfully',
