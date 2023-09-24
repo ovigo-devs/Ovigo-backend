@@ -157,10 +157,16 @@ const allStaysSchema = new mongoose.Schema({
         type: Number,
         required: [true, "Total Room Number Required"],
     },
-    room_type_bed: {
-            bed_name: String,
-            bed_number: Number
-        },
+    // room_type_bed: {
+    //         bed_name: String,
+    //         bed_number: Number
+    //     },
+    bed_name: {
+        type: String
+    },
+    bed_number: {
+        type: String
+    },
     total_person_stay: {
         type: Number,
         required: [true, "How many guest stay required"],
