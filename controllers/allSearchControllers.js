@@ -19,8 +19,6 @@ exports.getSearchSuggetionsStays = async (req, res, next) => {
                 error: error.message
             })
         }
-
-
     } catch (error) {
         res.status(400).json({
             status: 'Failled',
@@ -29,6 +27,7 @@ exports.getSearchSuggetionsStays = async (req, res, next) => {
         })
     }
 }
+
 
 exports.getAllDestinationTypeStays = async (req, res, next) => {
     try {
