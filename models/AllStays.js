@@ -93,7 +93,7 @@ const allStaysSchema = new mongoose.Schema({
         type: String
     },
     price_person_day: {
-        type: Number
+        type: String
     },
     breakfast_type: [
         {
@@ -143,14 +143,14 @@ const allStaysSchema = new mongoose.Schema({
         required: [true, "Allow Pets Should Yes or No"],
     },
     allow_petPrice: {
-        type: Number
+        type: String
     },
-    room_type: {
+    unit_type: {
         type: String,
         required: [true, "Room Type Required"],
     },
     total_room: {
-        type: Number,
+        type: String,
         required: [true, "Total Room Number Required"],
     },
     bed_name: {
@@ -160,7 +160,7 @@ const allStaysSchema = new mongoose.Schema({
         type: String
     },
     total_person_stay: {
-        type: Number,
+        type: String,
         required: [true, "How many guest stay required"],
     },
     room_size: {
@@ -202,7 +202,7 @@ const allStaysSchema = new mongoose.Schema({
         type: String,
     },
     room_price: {
-        type: Number,
+        type: String,
         required: [true, "Room Price Must Provide"],
     },
     room_main_image: {
