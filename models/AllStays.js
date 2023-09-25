@@ -12,7 +12,7 @@ const allStaysSchema = new mongoose.Schema({
         type: String,
         required: [true, "Stay Type Description must be required"],
     },
-    no_of_hotel: {
+    how_many_hotel_text: {
         type: String,
         required: [true, "Number Of Hotel must be required"],
     },
@@ -54,7 +54,7 @@ const allStaysSchema = new mongoose.Schema({
             about: String,
             activity: String,
             district: String,
-            Division: String,
+            division: String,
             image: String,
             known_as: String,
             primary_place_name: String,
@@ -64,10 +64,6 @@ const allStaysSchema = new mongoose.Schema({
     ],
     spot_to_hotel_distance: {
         type: String,
-    },
-    hotel_address: {
-        type: String,
-        required: [true, "Hotel Address Name must be required"],
     },
     hotel_name: {
         type: String,
@@ -157,10 +153,6 @@ const allStaysSchema = new mongoose.Schema({
         type: Number,
         required: [true, "Total Room Number Required"],
     },
-    // room_type_bed: {
-    //         bed_name: String,
-    //         bed_number: Number
-    //     },
     bed_name: {
         type: String
     },
@@ -172,7 +164,8 @@ const allStaysSchema = new mongoose.Schema({
         required: [true, "How many guest stay required"],
     },
     room_size: {
-        type: String
+        type: String,
+        required: [true, "Room Size required"],
     },
     allow_smoking: {
         type: String,
@@ -250,6 +243,10 @@ const allStaysSchema = new mongoose.Schema({
     status: {
         type: String,
         default: "Not Approve"
+    },
+    owner_email: {
+        type: String,
+        required: [true, "Email Must Be required"]
     }
 })
 
