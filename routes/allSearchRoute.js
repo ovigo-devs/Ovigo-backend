@@ -5,7 +5,7 @@ const allSearchControllers=require('../controllers/allSearchControllers');
 router.route('/').get(allSearchControllers.getSearchSuggetionsStays)
 router.route('/destinationType').get(allSearchControllers.getAllDestinationTypeStays)
 router.route('/spotName').get(allSearchControllers.getSpotNameSearchSuggetionsTouristSpot)
-router.route('/getAllPlaceSearch').get(allSearchControllers.getPlaceNameSearchSuggetionsDetails)
+router.route('/getAllPlaceSearch').post(allSearchControllers.getPlaceNameSearchSuggetionsDetails)
 
 
 module.exports=router;
