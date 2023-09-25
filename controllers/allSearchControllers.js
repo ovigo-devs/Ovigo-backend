@@ -86,7 +86,7 @@ exports.getSpotNameSearchSuggetionsTouristSpot = async (req, res, next) => {
 
 exports.getPlaceNameSearchSuggetionsDetails = async (req, res, next) => {
     try {
-        const { district, division, place_name, activity } = req.body;
+        const { district, division, primary_place_name, activity } = req.body;
 
         const conditions = {};
 
@@ -98,8 +98,8 @@ exports.getPlaceNameSearchSuggetionsDetails = async (req, res, next) => {
             conditions.division = { $regex: division, $options: 'i' };
         }
 
-        if (place_name) {
-            conditions.place_name = { $regex: place_name, $options: 'i' };
+        if (primary_place_name) {
+            conditions.primary_place_name = { $regex: primary_place_name, $options: 'i' };
         }
 
         if (activity) {
