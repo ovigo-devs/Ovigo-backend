@@ -1,4 +1,4 @@
-const { getAllSuggetionsStaysService, getAllDestinationService, getAllPlaceNameService } = require("../services/allSearchServices");
+const { getAllSuggetionsStaysService, getAllDestinationService, getAllPlaceNameService, getAllPlaceNameSearchService } = require("../services/allSearchServices");
 
 
 
@@ -60,6 +60,55 @@ exports.getSpotNameSearchSuggetionsTouristSpot = async (req, res, next) => {
         const searchTerm = req.query.term;
         const searchData = { $regex: searchTerm, $options: 'i' }
         const data = await getAllPlaceNameService(searchData);
+        if (data) {
+            res.status(200).json({
+                status: 'Successfully',
+                data: data
+            })
+        } else {
+            res.status(400).json({
+                status: 'Failled',
+                message: "Data Get Failed",
+                error: error.message
+            })
+        }
+
+
+    } catch (error) {
+        res.status(400).json({
+            status: 'Failled',
+            message: "Data Get Failed",
+            error: error.message
+        })
+    }
+}
+
+
+exports.getPlaceNameSearchSuggetionsDetails = async (req, res, next) => {
+    try {
+        const { district, division, location, destinationType } = req.query;
+
+        const conditions = {};
+
+        if (district) {
+            conditions.district = { $regex: district, $options: 'i' };;
+        }
+
+        if (division) {
+            conditions.division = { $regex: division, $options: 'i' };;
+        }
+
+        if (location) {
+            conditions.location = { $regex: location, $options: 'i' };;
+        }
+
+        if (destinationType) {
+            conditions.destinationType = { $regex: destinationType, $options: 'i' };;
+        }
+
+        const query = conditions;
+
+        const data = await getAllPlaceNameSearchService(query);
         if (data) {
             res.status(200).json({
                 status: 'Successfully',

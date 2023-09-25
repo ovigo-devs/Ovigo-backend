@@ -3,17 +3,22 @@ const AllTouristSpotName = require("../models/AllTouristSpotName");
 
 
 exports.getAllSuggetionsStaysService = async (searchData) => {
-    const allStay = await AllPlaces.find({ place_name: searchData });
-    return allStay;
+    const suggestStay = await AllPlaces.find({ place_name: searchData });
+    return suggestStay;
 }
 
 
 exports.getAllDestinationService = async () => {
-    const allStay = await AllPlaces.find({  });
-    return allStay;
+    const allDestinatioType = await AllPlaces.find({  });
+    return allDestinatioType;
 }
 
 exports.getAllPlaceNameService = async (searchData) => {
-    const allStay = await AllTouristSpotName.find({ spot_name: searchData });
-    return allStay;
+    const allPlaceName = await AllTouristSpotName.find({ spot_name: searchData });
+    return allPlaceName;
+}
+
+exports.getAllPlaceNameSearchService = async (query) => {
+    const allPlaceSearch = await AllPlaces.find(query);
+    return allPlaceSearch;
 }
