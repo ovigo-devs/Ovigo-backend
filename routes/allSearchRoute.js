@@ -7,7 +7,7 @@ router.route('/destinationType').get(allSearchControllers.getAllDestinationTypeS
 router.route('/spotName').get(allSearchControllers.getSpotNameSearchSuggetionsTouristSpot)
 router.route('/getAllPlaceSearch').post(allSearchControllers.getPlaceNameSearchSuggetionsDetails)
 router.route('/getHotelSearchSuggestion').get(allSearchControllers.getHotelPlaceSearchSuggetions)
-router.route('/getHotelSearchAll').get(allSearchControllers.getHotelSearchAll)
+router.route('/getHotelSearchAll').post(allSearchControllers.getHotelSearchAll)
 
 
 module.exports=router;
