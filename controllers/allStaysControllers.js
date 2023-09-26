@@ -31,8 +31,8 @@ exports.postAllStays = async (req, res, next) => {
 exports.getAllStays = async (req, res, next) => {
     try {
         const place_name = req.params.place_name;
-        console.log(place_name);
-        const data = await getAllStaysService(place_name);
+        const stay_type = req.query.stay_type;
+        const data = await getAllStaysService(place_name, stay_type);
         if (data) {
             res.status(200).json({
                 status: 'Successfully',
