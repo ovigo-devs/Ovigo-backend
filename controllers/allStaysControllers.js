@@ -28,7 +28,7 @@ exports.postAllStays = async (req, res, next) => {
     }
 }
 
-exports.getAllStays = async (req, res, next) => {
+exports.getAllServiceTypeStay = async (req, res, next) => {
     try {
         const place_name = req.params.place_name;
         const stay_type = req.query.stay_type;
