@@ -1,5 +1,5 @@
 
-const { postAllStaysService, getAllStaysService, getOneStaysService, getAllSuggetionsStaysService } = require('../services/allStaysServices');
+const { postAllStaysService, getAllStaysService, getOneStaysService, getAllSuggetionsStaysService, getAllStaysShowService } = require('../services/allStaysServices');
 
 exports.postAllStays = async (req, res, next) => {
     try {
@@ -32,6 +32,32 @@ exports.getAllStays = async (req, res, next) => {
     try {
         const place_name = req.body.place_name;
         const data = await getAllStaysService(place_name);
+        if (data) {
+            res.status(200).json({
+                status: 'Successfully',
+                data: data
+            })
+        } else {
+            res.status(400).json({
+                status: 'Failled',
+                message: "Data Get Failed",
+                error: error.message
+            })
+        }
+
+
+    } catch (error) {
+        res.status(400).json({
+            status: 'Failled',
+            message: "Data Get Failed",
+            error: error.message
+        })
+    }
+}
+
+exports.getAllStaysShow = async (req, res, next) => {
+    try {
+        const data = await getAllStaysShowService();
         if (data) {
             res.status(200).json({
                 status: 'Successfully',

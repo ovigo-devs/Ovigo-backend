@@ -1,4 +1,4 @@
-const { getAllSuggetionsStaysService, getAllDestinationService, getAllPlaceNameService, getAllPlaceNameSearchService } = require("../services/allSearchServices");
+const { getAllSuggetionsStaysService, getAllDestinationService, getAllPlaceNameService, getAllPlaceNameSearchService, getAllSuggetionsHotelService, getAllSearchHotelService } = require("../services/allSearchServices");
 
 
 
@@ -109,6 +109,77 @@ exports.getPlaceNameSearchSuggetionsDetails = async (req, res, next) => {
         const query = conditions;
 
         const data = await getAllPlaceNameSearchService(query);
+        if (data) {
+            res.status(200).json({
+                status: 'Successfully',
+                data: data
+            })
+        } else {
+            res.status(400).json({
+                status: 'Failled',
+                message: "Data Get Failed",
+                error: error.message
+            })
+        }
+
+
+    } catch (error) {
+        res.status(400).json({
+            status: 'Failled',
+            message: "Data Get Failed",
+            error: error.message
+        })
+    }
+}
+
+exports.getHotelPlaceSearchSuggetions = async (req, res, next) => {
+    try {
+        const searchTerm = req.query.term;
+        const searchData = { $regex: searchTerm, $options: 'i' }
+        const data = await getAllSuggetionsHotelService(searchData);
+        if (data) {
+            res.status(200).json({
+                status: 'Successfully',
+                data: data
+            })
+        } else {
+            res.status(400).json({
+                status: 'Failled',
+                message: "Data Get Failed",
+                error: error.message
+            })
+        }
+    } catch (error) {
+        res.status(400).json({
+            status: 'Failled',
+            message: "Data Get Failed",
+            error: error.message
+        })
+    }
+}
+
+exports.getHotelSearchAll = async (req, res, next) => {
+    try {
+        const { district, division, primary_place_name } = req.body;
+
+        const conditions = {};
+
+        if (district) {
+            conditions.district = { $regex: district, $options: 'i' };
+        }
+
+        if (division) {
+            conditions.division = { $regex: division, $options: 'i' };
+        }
+
+        if (primary_place_name) {
+            conditions.primary_place_name = { $regex: primary_place_name, $options: 'i' };
+        }
+
+        const query = conditions;
+        console.log(query);
+
+        const data = await getAllSearchHotelService(query);
         if (data) {
             res.status(200).json({
                 status: 'Successfully',
