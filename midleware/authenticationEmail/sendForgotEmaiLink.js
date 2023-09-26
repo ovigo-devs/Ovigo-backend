@@ -7,8 +7,10 @@ const SendMailForgotPassword = async (email) => {
             host: 'smtp.gmail.com',
             secure: true,
             auth: {
-                user: process.env.EMAIL_USERNAME,
-                pass: process.env.EMAIL_PASSWORD,
+                // user: process.env.EMAIL_USERNAME,
+                user: 'tempmaildev6@gmail.com',
+                // pass: process.env.EMAIL_PASSWORD,
+                pass: 'qcofbnbjhcchccij',
             },
         });
         const resetLink = 'http://localhost:5000/'

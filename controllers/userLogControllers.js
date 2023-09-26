@@ -29,7 +29,8 @@ exports.postLogUser = async (req, res, next) => {
             })
         }
 
-        const token = jwt.sign({ email }, process.env.ACCESS_TOKEN);
+        // const token = jwt.sign({ email }, process.env.ACCESS_TOKEN);
+        const token = jwt.sign({ email }, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5hem11bEBnbWFpbC5jb20iLCJpYXQiOjE2OTQ0MzExOTF9.xtLPsJrvJ0Gtr4rsnHh1kok51_pU10_hYLilZyBiRAM');
         return res.send({ ovigoLogInToken: token })
 
     } catch (error) {

@@ -43,7 +43,8 @@ app.use('/searchSuggetions', allSearchRoute);
 
 connectDB();
 
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 8080;
+const port = 5000 || 8080;
 
 app.listen(port, () => {
     console.log(`Ovigo app is running on port ${port}`);
