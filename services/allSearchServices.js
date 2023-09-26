@@ -10,7 +10,7 @@ exports.getAllSuggetionsStaysService = async (searchData) => {
 
 
 exports.getAllDestinationService = async () => {
-    const allDestinatioType = await AllPlaces.find({  });
+    const allDestinatioType = await AllPlaces.find({});
     return allDestinatioType;
 }
 
@@ -30,6 +30,10 @@ exports.getAllSuggetionsHotelService = async (searchData) => {
 }
 
 exports.getAllSearchHotelService = async (query) => {
-    const allHotelSearch = await AllStays.find(query);
-    return allHotelSearch;
+    try {
+        const allHotelSearch = await AllStays.find(query);
+        return allHotelSearch;
+    } catch (error) {
+        console.log(error);
+    }
 }

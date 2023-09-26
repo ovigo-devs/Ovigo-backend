@@ -182,7 +182,6 @@ exports.getHotelSearchAll = async (req, res, next) => {
         }
 
         const query = conditions;
-        console.log(query);
 
         const data = await getAllSearchHotelService(query);
         if (data) {
