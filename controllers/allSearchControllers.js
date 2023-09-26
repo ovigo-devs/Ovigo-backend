@@ -1,7 +1,7 @@
 const { getAllSuggetionsStaysService, getAllDestinationService, getAllPlaceNameService, getAllPlaceNameSearchService, getAllSuggetionsHotelService, getAllSearchHotelService } = require("../services/allSearchServices");
 
 
-
+// discover place location suggest
 exports.getSearchSuggetionsStays = async (req, res, next) => {
     try {
         const searchTerm = req.query.term;
@@ -28,7 +28,7 @@ exports.getSearchSuggetionsStays = async (req, res, next) => {
     }
 }
 
-
+// Discover search destination type
 exports.getAllDestinationTypeStays = async (req, res, next) => {
     try {
         const data = await getAllDestinationService();
@@ -54,6 +54,7 @@ exports.getAllDestinationTypeStays = async (req, res, next) => {
         })
     }
 }
+
 
 exports.getSpotNameSearchSuggetionsTouristSpot = async (req, res, next) => {
     try {
@@ -83,7 +84,7 @@ exports.getSpotNameSearchSuggetionsTouristSpot = async (req, res, next) => {
     }
 }
 
-
+// discover place Search Submit
 exports.getPlaceNameSearchSuggetionsDetails = async (req, res, next) => {
     try {
         const { district, division, primary_place_name, activity } = req.body;
@@ -132,6 +133,8 @@ exports.getPlaceNameSearchSuggetionsDetails = async (req, res, next) => {
     }
 }
 
+
+// Hotel place location suggest
 exports.getHotelPlaceSearchSuggetions = async (req, res, next) => {
     try {
         const searchTerm = req.query.term;
@@ -158,6 +161,8 @@ exports.getHotelPlaceSearchSuggetions = async (req, res, next) => {
     }
 }
 
+
+// Hotel Seach Submit
 exports.getHotelSearchAll = async (req, res, next) => {
     try {
         const { district, division, primary_place_name } = req.body;
