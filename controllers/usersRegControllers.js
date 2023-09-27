@@ -49,11 +49,11 @@ exports.postRegUserAccountVerify = async (req, res, next) => {
             return res.send({ message: 'Something Wrong' });
         }
         const otp = user?.otp;
-        if(data?.otp == otp){
+        if (data?.otp == otp) {
             res.status(200).json({
                 status: 'Successfully'
             })
-        }else{
+        } else {
             res.status(400).json({
                 status: 'Failled',
                 message: "OTP not match",
@@ -71,21 +71,23 @@ exports.postRegUserAccountVerify = async (req, res, next) => {
 
 exports.postRegUserResendCode = async (req, res, next) => {
     try {
-        const {email} = req.body;
+        const { email } = req.body;
         const user = await getRegUserServices(email);
+
         if (!user) {
             return res.send({ message: 'Something Wrong' });
         }
         const otp = Math.floor(1000 + Math.random() * 9000);
         const updateOTP = await updateRegUserOTPServices(otp, user?._id);
-        if(updateOTP?.modifiedCount > 0){
+        if (updateOTP?.modifiedCount > 0) {
             const newOtp = await getRegUserServices(email);
             await SendMail(newOtp?.otp, email);
             res.send({
                 message: "New OTP Send",
-                otp: newOtp?.otp
+                otp: newOtp?.otp,
+                data: updateOTP
             })
-        }else{
+        } else {
             res.status(400).json({
                 status: 'Failled',
                 message: "Something Wrong",
@@ -108,17 +110,25 @@ exports.updateUserInfo = async (req, res, next) => {
         if (!result) {
             return res.send('Nothing Update');
         }
-        res.status(200).json({
-            status: 'Successfully Updated',
-            data: result
-        })
+        if (result?.modifiedCount > 0) {
+            res.status(200).json({
+                status: 'Successfully Updated',
+                data: result
+            })
+        } else {
+            res.status(400).json({
+                status: 'Failled',
+                message: "Something Wrong",
+                error: error.message
+            })
+        }
 
-} catch (error) {
-    res.status(400).json({
-        status: 'Failled',
-        message: "Nothing Update",
-        error: error.message
-    })
-}
+    } catch (error) {
+        res.status(400).json({
+            status: 'Failled',
+            message: "Nothing Update",
+            error: error.message
+        })
+    }
 }
 

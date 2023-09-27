@@ -26,7 +26,7 @@ exports.getOneStaysService = async (id) => {
 }
 
 exports.getPlaceDetailsPageAllStaysService = async (place_name, stay_type) => {
-    // const allStay = await AllStays.find({ place_name: place_name, status: "Approve" }).sort([['special_partner', -1], ['partner', -1]]);
+    // const allStay = await AllStays.find({ place_name: place_name, stay_type: stay_type, status: "Approve" }).sort([['special_partner', -1], ['partner', -1]]);
     const allStay = await AllStays.find({ place_name: place_name, stay_type: stay_type }).sort([['special_partner', -1], ['partner', -1]]);
     return allStay;
 }

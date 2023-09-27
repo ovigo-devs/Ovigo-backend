@@ -13,7 +13,8 @@ const SendMailForgotPassword = async (email) => {
                 pass: 'qcofbnbjhcchccij',
             },
         });
-        const resetLink = 'http://localhost:5000/'
+        // const resetLink = 'http://localhost:5000/'
+        const resetLink = 'https://ovigo.net/reset-password'
         // send mail with defined transport object
         let info = await transporter.sendMail({
             from: 'No reply <ovigo@gmail.com>', // sender address
